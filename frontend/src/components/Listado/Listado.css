@@ -1,0 +1,19 @@
+.table {
+    border-color: #faf7f7;
+    color:aliceblue;
+    padding-top: 40px;
+}
+
+.video-image {
+    width: 75px !important;
+}
+
+.marco-blanco {
+    border: 2px solid #f1f1f8; /* tamaño y color de borde */
+    margin-left: 40px;
+}
+
+.nombre-head {
+    padding: 20px 20px;
+    color: aqua;
+}

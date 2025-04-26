@@ -1,0 +1,63 @@
+.navbar-custom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #222; */
+    padding: 15px 30px;
+}
+
+.navbar-brand {
+    font-size: 32px !important;
+    font-weight: bold;
+    color: #f8f9fa !important;
+}
+
+.navbar-menu {
+    flex-grow: 1;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.btn-login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    font-size: medium !important;
+    padding: 10px 15px !important;
+    cursor: pointer;
+    width: 160px;
+}
+
+.btn-login:hover {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    font-size: medium !important;
+    padding: 10px 15px !important;
+    cursor: pointer;
+    width: 160px;
+}
+
+.user-greeting {
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.user-greeting-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Alinea a la derecha */
+    padding: 0 0 10px 0; /* Espaciado superior e interno */
+    /* background-color: #333; Ajusta el color de fondo si es necesario */
+}

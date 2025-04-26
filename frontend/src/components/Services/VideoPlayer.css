@@ -1,0 +1,13 @@
+.mejs__container {
+    background-color: black !important;
+}
+
+.mejs__overlay-button :hover{
+    /* background-color:aqua !important; */
+    content: "▶"; /* Icono de reproducción */
+}
+
+.mejs__overlay-button {
+    content: "▶"; /* Icono de reproducción */
+    background-color:transparent!important;
+}

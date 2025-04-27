@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# dotenv environment variables
+.env
+.env.*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Optional npm cache directory
+.npm/
+
+# Coverage reports
+coverage/
+
+# Misc
+*.local
+*.bak
+*.tmp
+*.temp
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+$RECYCLE.BIN/
+
+# Other
+*.tgz
+*.zip
+*.gz
+*.rar
+*.7z

@@ -1,21 +1,20 @@
 .recientes {
-
     color: aliceblue;
-
-
 }
 
 .color-gris {
     background-color: rgb(39, 39, 39);
 }
 
-
 .services .item{
-    padding: 1x;
+    padding: 20px;
     cursor: pointer;
     transition: var(--transition);
     position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .services .item::after{
     position: absolute;
     content: "";
@@ -27,32 +26,110 @@
     background: rgb(87, 100, 222);
     background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
     transition: var(--transition);
+    border-radius: 0 0 8px 8px;
 }
+
 .services .item:hover::after{
     width: 100%;
 }
+
 .services .item:hover .item-text{
     color: var(--clr-white);
 }
+
 .services .item-icon{
     font-size: 45px;
 }
+
 .services .item-list{
     row-gap: 30px;
 }
+
 .services .item-link{
     margin-top: 18px;
     display: inline-block;
     transition: var(--transition);
-}
-.services .item:hover .item-link{
-    color: var(--clr-white);
+    padding: 8px 15px;
+    border-radius: 4px;
+    border: 1px solid var(--clr-grey);
 }
 
+.services .item:hover .item-link{
+    color: var(--clr-white);
+    border-color: var(--clr-white);
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+}
+
+.loading-text, .error-text {
+    font-size: 18px;
+    padding: 20px;
+}
+
+.no-products {
+    grid-column: 1 / -1;
+    padding: 30px;
+}
+
+.download-btn {
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+.genero-tag {
+    display: inline-block;
+    background: linear-gradient(45deg, rgba(87, 100, 222, 0.3) 0%, rgba(85, 179, 213, 0.3) 100%);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: white;
+    margin-top: 5px;
+}
+
+.precio-tag {
+    font-weight: bold;
+    color: #55b3d5;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* Media queries para responsive */
 @media screen and (min-width: 768px){
     .services .item-list{
         grid-template-columns: repeat(2, 1fr);
         column-gap: 30px;
+    }
+    
+    .services .item {
+        padding: 25px;
+    }
+    
+    .section-title {
+        font-size: 36px;
     }
 }
 
@@ -60,5 +137,51 @@
     .services .item-list{
         grid-template-columns: repeat(3, 1fr);
         column-gap: 30px;
+    }
+    
+    .services .item {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .services .item {
+        padding: 15px;
+    }
+    
+    .services .item-title {
+        font-size: 22px;
+        margin: 12px 0;
+    }
+    
+    .services .item-link {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .services .item {
+        padding: 12px;
+    }
+    
+    .services .item-title {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    
+    .services .item-link {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 15px;
     }
 }

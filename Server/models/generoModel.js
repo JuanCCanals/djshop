@@ -1,17 +1,31 @@
 import db from '../config/db.js';
 
+// Obtener todos los géneros
 export const getGeneros = (callback) => {
-    db.query('SELECT * FROM genero', callback);
+    const query = 'SELECT id, nombre FROM genero ORDER BY nombre';
+    db.query(query, callback);
 };
 
+// Obtener género por ID
+export const getGeneroById = (id, callback) => {
+    const query = 'SELECT id, nombre FROM genero WHERE id = ?';
+    db.query(query, [id], callback);
+};
+
+// Crear nuevo género
 export const createGenero = (nombre, callback) => {
-    db.query('INSERT INTO genero (nombre) VALUES (?)', [nombre], callback);
+    const query = 'INSERT INTO genero (nombre) VALUES (?)';
+    db.query(query, [nombre], callback);
 };
 
+// Actualizar género
 export const updateGenero = (id, nombre, callback) => {
-    db.query('UPDATE genero SET nombre = ? WHERE id = ?', [nombre, id], callback);
+    const query = 'UPDATE genero SET nombre = ? WHERE id = ?';
+    db.query(query, [nombre, id], callback);
 };
 
+// Eliminar género
 export const deleteGenero = (id, callback) => {
-    db.query('DELETE FROM genero WHERE id = ?', [id], callback);
+    const query = 'DELETE FROM genero WHERE id = ?';
+    db.query(query, [id], callback);
 };

@@ -6,11 +6,12 @@ import Listado from '../components/Listado/Listado'
 const Videos = () => {
     const titulo = "Videos"
     return (
-        <section className='services section-p-top bg-md-black' id = "services">
+        <section className='services section-p-top bg-md-black' id="services">
             <div className='container'>
                 <Header />
-                <Slider titulo = {titulo}/>
-                <Listado />
+                <Slider titulo={titulo}/>
+                {/* Pasar el tipo 'video' para filtrar solo videos */}
+                <Listado tipo="video" />
             </div>
         </section>
     )

@@ -1,5 +1,7 @@
+import React from 'react'
 import { useEffect, useState, useRef } from "react";
 //import "mediaelement/build/mediaelementplayer.min.css";
+import "mediaelement/build/mediaelement-and-player";
 import "mediaelement/build/mediaelementplayer.css";
 
 import "mediaelement";
@@ -42,7 +44,7 @@ const VideoPlayer = ({ filename }) => {
         ref={videoRef}
         width="352"
         height="150"
-        controles
+        controls
         //loop
         //autoPlay
         playsInline

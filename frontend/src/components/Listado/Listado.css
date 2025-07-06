@@ -1,6 +1,6 @@
 .table {
     border-color: #faf7f7;
-    color:aliceblue;
+    color: aliceblue;
     padding-top: 40px;
 }
 
@@ -10,10 +10,133 @@
 
 .marco-blanco {
     border: 2px solid #f1f1f8; /* tamaño y color de borde */
-    margin-left: 40px;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.marco-blanco:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nombre-head {
     padding: 20px 20px;
     color: aqua;
+}
+
+/* Estilos para la vista responsive */
+.listado-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-responsive {
+    min-width: 100%;
+    overflow-x: auto;
+}
+
+/* Estilos para vista móvil */
+.pistas-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.pista-card {
+    background-color: rgba(39, 39, 39, 0.8);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pista-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.pista-titulo {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+}
+
+.pista-info {
+    margin: 10px 0;
+}
+
+.pista-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.pista-info span {
+    font-weight: bold;
+    color: aqua;
+}
+
+.pista-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* Estilos para filtros */
+.filtro-genero, .filtro-genero-mobile {
+    margin-bottom: 20px;
+}
+
+.filtro-select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    min-width: 200px;
+}
+
+.filtro-genero-mobile .filtro-select {
+    width: 100%;
+}
+
+/* Estilos para estados de carga y error */
+.loading-container, .error-container, .no-results {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.error-container {
+    color: #ff6b6b;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media screen and (max-width: 991px) {
+    .table th, .table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+    
+    .video-image {
+        width: 60px !important;
+    }
+    
+    .marco-blanco {
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .pista-card {
+        padding: 12px;
+    }
+    
+    .video-image {
+        width: 50px !important;
+    }
 }

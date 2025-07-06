@@ -1,0 +1,359 @@
+/* Estilos para Mi Cuenta */
+.mi-cuenta {
+  min-height: 100vh;
+  color: white;
+}
+
+.user-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  border: 2px solid #55b3d5;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+}
+
+.avatar-placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.user-details h2 {
+  margin: 0 0 10px 0;
+  color: #55b3d5;
+  font-size: 1.8rem;
+}
+
+.user-details p {
+  margin: 0 0 15px 0;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.user-credits {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.credits-label {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.credits-value {
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #3a3a3a;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #55b3d5;
+}
+
+.tab-btn.active {
+  color: #55b3d5;
+  border-bottom-color: #55b3d5;
+}
+
+.tab-content {
+  min-height: 400px;
+}
+
+/* Estilos para la pestaña de perfil */
+.perfil-card, .suscripcion-card {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #3a3a3a;
+}
+
+.perfil-card h3, .suscripcion-card h3 {
+  color: #55b3d5;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+.perfil-details, .suscripcion-details {
+  display: grid;
+  gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.detail-label {
+  color: #ccc;
+  font-weight: bold;
+}
+
+.detail-value {
+  color: white;
+}
+
+.credits-highlight {
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+/* Estilos para suscripción */
+.suscripcion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.suscripcion-status {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.suscripcion-status.activa {
+  background: #28a745;
+  color: white;
+}
+
+.suscripcion-status.inactiva {
+  background: #dc3545;
+  color: white;
+}
+
+.no-suscripcion {
+  text-align: center;
+  padding: 60px 20px;
+  background: #2a2a2a;
+  border-radius: 15px;
+  border: 2px solid #3a3a3a;
+}
+
+.no-suscripcion p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.btn-get-plan {
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-get-plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(85, 179, 213, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+/* Estilos para compras */
+.compras-list {
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid #3a3a3a;
+}
+
+.compras-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background: #3a3a3a;
+  font-weight: bold;
+  color: #55b3d5;
+}
+
+.compra-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #3a3a3a;
+  align-items: center;
+}
+
+.compra-item:last-child {
+  border-bottom: none;
+}
+
+.compra-col {
+  color: white;
+}
+
+.download-again-btn {
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.download-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(85, 179, 213, 0.4);
+}
+
+.no-compras {
+  text-align: center;
+  padding: 60px 20px;
+  background: #2a2a2a;
+  border-radius: 15px;
+  border: 2px solid #3a3a3a;
+}
+
+.no-compras p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.btn-explore {
+  background: linear-gradient(135deg, #55b3d5, #5764de);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(85, 179, 213, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.loading-container, .error-container {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.error-container {
+  color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    text-align: center;
+    border-bottom: none;
+    border-right: 3px solid transparent;
+  }
+
+  .tab-btn.active {
+    border-bottom: none;
+    border-right-color: #55b3d5;
+  }
+
+  .compras-header, .compra-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .compras-header {
+    display: none;
+  }
+
+  .compra-item {
+    background: #3a3a3a;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .compra-col {
+    padding: 5px 0;
+    border-bottom: 1px solid #4a4a4a;
+  }
+
+  .compra-col:last-child {
+    border-bottom: none;
+    text-align: center;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+

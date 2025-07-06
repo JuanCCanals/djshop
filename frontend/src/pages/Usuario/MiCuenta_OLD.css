@@ -1,0 +1,356 @@
+.mi-cuenta {
+  color: white;
+}
+
+.user-dashboard {
+  background-color: rgba(39, 39, 39, 0.8);
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.avatar-placeholder {
+  font-size: 36px;
+  color: white;
+  font-weight: bold;
+}
+
+.user-details h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+}
+
+.user-details p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.dashboard-tabs {
+  display: flex;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  opacity: 1;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+}
+
+.tab-content {
+  min-height: 300px;
+}
+
+/* Estilos para la pestaña de suscripción */
+.suscripcion-card {
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.suscripcion-card.pendiente {
+  border: 1px solid #ffc107;
+}
+
+.suscripcion-card.activa {
+  border: 1px solid #28a745;
+}
+
+.suscripcion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suscripcion-header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.suscripcion-status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.suscripcion-status.pendiente {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+}
+
+.suscripcion-status.activa {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+.suscripcion-details {
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.detail-label {
+  opacity: 0.7;
+}
+
+.detail-value {
+  font-weight: bold;
+}
+
+.pending-message {
+  background-color: rgba(255, 193, 7, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.bank-info-reminder {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.bank-info-reminder h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.bank-info-reminder p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.no-suscripcion {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.btn-get-plan {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-get-plan:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la pestaña de compras */
+.compras-list {
+  width: 100%;
+}
+
+.compras-header {
+  display: flex;
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 15px;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+}
+
+.compra-item {
+  display: flex;
+  background-color: rgba(50, 50, 50, 0.4);
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compra-item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.compra-col {
+  flex: 1;
+}
+
+.download-again-btn {
+  background: linear-gradient(45deg, rgba(87, 100, 222, 0.7) 0%, rgba(85, 179, 213, 0.7) 100%);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-again-btn:hover {
+  background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+}
+
+.no-compras {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.btn-explore {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, rgba(87, 100, 222, 1) 0%, rgba(85, 179, 213, 1) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.loading-container, .error-container {
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.error-container {
+  color: #ff6b6b;
+}
+
+/* Media queries para responsive */
+@media screen and (max-width: 768px) {
+  .user-dashboard {
+    padding: 20px 15px;
+  }
+  
+  .user-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .avatar-placeholder {
+    font-size: 28px;
+  }
+  
+  .user-details h2 {
+    font-size: 20px;
+  }
+  
+  .tab-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .compras-header, .compra-item {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .download-again-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .user-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .tab-btn {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .tab-btn.active::after {
+    display: none;
+  }
+  
+  .tab-btn.active {
+    background-color: rgba(87, 100, 222, 0.2);
+  }
+  
+  .compras-header {
+    display: none;
+  }
+  
+  .compra-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .compra-col {
+    position: relative;
+    padding-left: 100px;
+  }
+  
+  .compra-col::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 90px;
+    font-weight: bold;
+    opacity: 0.7;
+  }
+}

@@ -3,9 +3,9 @@ import { obtenerGeneros, agregarGenero, actualizarGenero, eliminarGenero } from 
 
 const router = express.Router();
 
-router.get('/generos', obtenerGeneros);
-router.post('/generos', agregarGenero);
-router.put('/generos/:id', actualizarGenero);
-router.delete('/generos/:id', eliminarGenero);
+router.get('/', obtenerGeneros);
+router.post('/', agregarGenero);
+router.put('/:id', actualizarGenero);
+router.delete('/:id', eliminarGenero);
 
 export default router;

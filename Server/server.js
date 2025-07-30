@@ -120,14 +120,14 @@ app.use(cookieParser())
 app.use('/api/descargas', descargasRoutes);
 app.use('/api/pagos', pagosRoutes);
 app.use('/api/roles', rolesRoutes);
-app.use('/api', suscripcionesRoutes);
+app.use('/api/suscripciones', suscripcionesRoutes);
 app.use('/api/contacto', contactoRoutes);
-app.use('/api', planesRoutes);
-app.use('/api', pistasRoutes);
-app.use('/api', usuariosRoutes);
-app.use('/api', comprasRoutes);
+app.use('/api/planes', planesRoutes);
+app.use('/api/pistas', pistasRoutes);
+app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/compras', comprasRoutes);
 app.use('/auth', adminRouter)
-app.use('/api', generoRoutes);
+app.use('/api/generos', generoRoutes);
 
 app.listen(5000, () => {
     console.log("Server is running on port 5000");

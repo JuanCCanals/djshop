@@ -4,14 +4,19 @@ import Slider from '../components/Slider/Slider';
 import SinglePlan from '../components/SinglePlan/SinglePlan';
 import axios from 'axios';
 import './Planes.css';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 const Planes = () => {
     const titulo = "Planes";
     const [planes, setPlanes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [showModal, setShowModal] = useState(false);
+
+    //const [showModal, setShowModal] = useState(false);
+    //const [selectedPlan, setSelectedPlan] = useState(null);
+    const [showPayPal, setShowPayPal] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState(null);
+    const [orderId, setOrderId] = useState(null);
 
     useEffect(() => {
         const fetchPlanes = async () => {
@@ -30,9 +35,18 @@ const Planes = () => {
         fetchPlanes();
     }, []);
 
-    const handleSuscribir = (plan) => {
+    // const handleSuscribir = (plan) => {
+    //     setSelectedPlan(plan);
+    //     setShowModal(true);
+    // };
+    const handleSuscribir = async (plan) => {
         setSelectedPlan(plan);
-        setShowModal(true);
+        // 1. crea orden PayPal en backend
+        const { data } = await axios.post('http://localhost:5000/api/pagos/create-order', {
+            plan_id: plan.id_plan
+        });
+        setOrderId(data.id);
+        setShowPayPal(true);          // muestra botón PayPal
     };
 
     const handleConfirmarSuscripcion = async () => {
@@ -114,7 +128,8 @@ const Planes = () => {
             </div>
 
             {/* Modal de información de pago */}
-            {showModal && selectedPlan && (
+            {/* Si se desea mantener la opción de transferencia, simplemente mantén tu antiguo modal y muéstralo con otro botón (p. ej. “Pagar por transferencia”). */}
+            {/* {showModal && selectedPlan && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h3>Información de Pago</h3>
@@ -149,7 +164,38 @@ const Planes = () => {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
+
+{/* PayPal modal */}
+{showPayPal && selectedPlan && (
+    <div className="modal-overlay">
+        <div className="modal-content">
+        <h3>Pagar suscripción – {selectedPlan.nombre}</h3>
+
+        <PayPalScriptProvider options={{ 'client-id': import.meta.env.VITE_PAYPAL_CLIENT_ID }}>
+            <PayPalButtons
+            style={{ layout: 'vertical', color: 'gold' }}
+            createOrder={() => orderId}          // ya lo tienes
+            onApprove={ async (_, actions) => {
+                // 2. Captura la orden en backend
+                await axios.post(`http://localhost:5000/api/pagos/capture/${orderId}`);
+                alert('Pago confirmado, créditos añadidos 👍');
+                setShowPayPal(false);
+                // TODO: refrescar estado del usuario / saldo de tokens
+            }}
+            onCancel={() => setShowPayPal(false)}
+            onError={(err) => {
+                console.error(err);
+                alert('Error al procesar el pago');
+            }}
+            />
+        </PayPalScriptProvider>
+
+        <button className="cancel-btn" onClick={() => setShowPayPal(false)}>Cancelar</button>
+        </div>
+    </div>
+)}
+
         </section>
     );
 };

@@ -1,3 +1,4 @@
+// /app/DJSHOP/Server/server.js
 import express from 'express'
 import cors from 'cors';
 import { adminRouter } from "./Routes/AdminRoute.js";
@@ -21,7 +22,10 @@ import suscripcionesRoutes from './Routes/suscripcionesRoutes.js';
 
 dotenv.config();
 const app = express()
-const SECRET_KEY = "Meschina_my_Love"; // Usa una clave segura
+
+// 🔑 Variables desde .env
+const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
+const PORT = process.env.PORT || 5000;
 
 app.use(cors({
     origin: ["http://localhost:5173"],
@@ -35,34 +39,28 @@ app.use(cors({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 📌 1️⃣ Ruta para generar un token (cuando el usuario compra/accede a un video)
+// 📌 1️⃣ Ruta para generar un token
 app.get("/generate-video-token/:filename", (req, res) => {
     const { filename } = req.params;
-    const token = jwt.sign({ filename }, SECRET_KEY, { expiresIn: "30m" }); // Token expira en 30 minutos
+    const token = jwt.sign({ filename }, JWT_SECRET, { expiresIn: "30m" });
     res.json({ token });
 });
 
-// 📌 2️⃣ Ruta protegida para servir el video
+// 📌 2️⃣ Ruta protegida para streaming
 app.get("/stream-video/:token", (req, res) => {
     try {
         const { token } = req.params;
-        const decoded = jwt.verify(token, SECRET_KEY);
+        const decoded = jwt.verify(token, JWT_SECRET);
         const filePath = path.join(__dirname, "public", "Images", decoded.filename);
-        console.log('token: ', token)
-        console.log('decoded: ', decoded)
-        console.log('filePath: ', filePath)
 
-        // Verificar si el archivo existe
         if (!fs.existsSync(filePath)) {
             return res.status(404).json({ error: "Archivo no encontrado" });
         }
 
-        // Obtener estadísticas del archivo
         const stat = fs.statSync(filePath);
         const fileSize = stat.size;
         const range = req.headers.range;
 
-        // Streaming de video
         if (range) {
             const parts = range.replace(/bytes=/, "").split("-");
             const start = parseInt(parts[0], 10);
@@ -91,11 +89,11 @@ app.get("/stream-video/:token", (req, res) => {
     }
 });
 
-// 📌 3️⃣ Ruta para descargar archivos con token
+// 📌 3️⃣ Ruta para descarga con token
 app.get("/download/:token", (req, res) => {
     try {
         const { token } = req.params;
-        const decoded = jwt.verify(token, SECRET_KEY);
+        const decoded = jwt.verify(token, JWT_SECRET);
         const filePath = path.join(__dirname, "public", "Images", decoded.filename);
         
         if (!fs.existsSync(filePath)) {
@@ -129,6 +127,6 @@ app.use('/api/compras', comprasRoutes);
 app.use('/auth', adminRouter)
 app.use('/api/generos', generoRoutes);
 
-app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+app.listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
 });

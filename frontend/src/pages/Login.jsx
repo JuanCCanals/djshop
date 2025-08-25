@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 const Login = () => {
   const [isRegistering, setIsRegistering] = useState(false); // Estado para alternar entre login y registro
   const [email, setEmail] = useState("");
@@ -34,7 +36,8 @@ const Login = () => {
 
       // Enviar datos de registro
       try {
-        const response = await fetch("http://localhost:5000/auth/register", {
+        const response = await fetch(`${API_URL}/api/auth/register`, {
+          credentials: "include",
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, username, password }),
@@ -53,7 +56,7 @@ const Login = () => {
     } else {
       // Enviar datos de login
       try {
-        const response = await fetch("http://localhost:5000/auth/adminlogin", {
+        const response = await fetch(`${API_URL}/api/auth/adminlogin`, {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

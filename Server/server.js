@@ -28,12 +28,11 @@ const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: ["http://localhost:5173"],
-    methods: ['GET', 'POST', 'PUT', "DELETE", "OPTIONS"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: ["http://localhost:5173", "https://djshop.prodixperu.com"],
+    methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization'],
     credentials: true,
-    optionsSuccessStatus: 200,
-}))
+}));
 
 // Obtener __dirname en ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -124,7 +123,7 @@ app.use('/api/planes', planesRoutes);
 app.use('/api/pistas', pistasRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 app.use('/api/compras', comprasRoutes);
-app.use('/auth', adminRouter)
+app.use('/api/auth', adminRouter);
 app.use('/api/generos', generoRoutes);
 
 app.listen(PORT, () => {
